@@ -1,0 +1,254 @@
+/*  Sheet styles */
+
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    /*The box-sizing property is used to tell the browser what the sizing properties (width and height) should include border-box.*/
+    box-sizing: border-box;
+    /*reset Chrome user agent styles*/
+    -webkit-margin-before: 0px;
+    -webkit-margin-after: 0px;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    -webkit-padding-before: 0px;
+    -webkit-padding-after: 0px;
+    -webkit-padding-start: 0px;
+    -webkit-padding-end: 0px;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+.content {
+    padding: 0 0.938rem;
+    margin: 0 auto;
+    min-width: 37.5rem;
+}
+
+:focus {
+    outline: none;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+/*//////////////////////// Nav section ////////////////////////*/
+
+.nav {
+    background-color: #fff;
+    position: fixed;
+    width: 100%;
+    margin-top: -1rem;
+}
+
+.nav>.content {
+    height: 4.375rem;
+}
+
+.nav .links {
+    float: left;
+    color: #838994;
+    font-size: 1.04rem;
+    margin-top: 1.7rem;
+}
+
+.nav .links li {
+    display: inline-block;
+    margin-left: 1.563rem;
+}
+
+.nav .links li a {
+    text-decoration: none;
+    color: #838994;
+}
+
+.nav .links li:hover {
+    cursor: pointer;
+    color: #333333;
+}
+
+
+/*//////////////////////// Background/intro section ////////////////////////*/
+
+.intro {
+    background: url("images/img1.jpg") no-repeat center bottom;
+    background-size: cover;
+    height: 50rem;
+    overflow: auto;
+}
+
+.intro h1,
+.intro h3 {
+    color: white;
+    text-align: center;
+    font-weight: 300;
+}
+
+.intro h1 {
+    margin-top: 4.5rem;
+    font-size: 3.125rem;
+}
+
+.intro h3 {
+    margin-top: 1.25rem;
+    font-size: 1.563rem;
+}
+
+
+/*//////////////////////// Container section ////////////////////////*/
+
+.container {
+    width: 80%;
+    padding: 0.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.input-form input,
+.input-form button {
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 1rem;
+    background-color: white;
+    color: lightgray;
+    margin-top: 4rem;
+}
+
+.input-form input {
+    width: 30%;
+    color: black;
+}
+
+.input-form button {
+    background-color: green;
+    width: 9.688rem;
+    border-style: none;
+    border-radius: 4px;
+    padding: 1rem 1.5rem;
+    color: white;
+    font-size: 1.125rem;
+}
+
+.input-form button:hover {
+    background-color: lightgreen;
+    cursor: pointer;
+}
+
+.input-form p {
+    font-size: 20px;
+    color: white;
+    padding: 5px;
+    font-weight: 300;
+}
+
+.zeroHeight {
+    height: 0px !important;
+}
+
+
+/*//////////////////////// Output section ////////////////////////*/
+
+.output .column {
+    vertical-align: top;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 18px;
+    color: black;
+    width: 31%;
+    display: inline-block;
+    background-color: white;
+    font-weight: 300;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    height: 400px;
+    overflow-y: scroll;
+}
+
+.output .column .well {
+    text-align: left;
+    margin-top: 20px;
+}
+
+.output .column a {
+    text-decoration: none;
+    color: black;
+}
+
+
+/*//////////////////////// Footer section ////////////////////////*/
+
+footer {
+    background-color: #708090;
+    color: white;
+    text-align: center;
+    height: 3rem;
+    margin-top: 0.5rem;
+    font-weight: 100;
+}
+
+footer p {
+    padding-top: rem;
+}
+
+
+/*//////////////////////// google maps related css ////////////////////////*/
+
+#map {
+    height: 500px;
+    width: 100%;
+}
+
+.controls {
+    margin-top: 10px;
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    height: 32px;
+    outline: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+#pac-input:focus {
+    border-color: #4d90fe;
+}
+
+.pac-container {
+    font-family: Roboto;
+}
+
+#type-selector {
+    color: #fff;
+    background-color: #4d90fe;
+    padding: 5px 11px 0px 11px;
+}
+
+#type-selector label {
+    font-family: Roboto;
+    font-size: 13px;
+    font-weight: 300;
+}
+
+#target {
+    width: 345px;
+}
+
+
+/*//////////////////////// Media section ////////////////////////*/
+
+@media screen and (max-width:800px) {
+    #output1,
+    #output2,
+    #output3 {
+        width: 100%;
+    }
+}

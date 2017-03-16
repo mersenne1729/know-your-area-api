@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- Awesome fonts -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="main.css">
+
+    <!-- Google font -->
+    <link href='//fonts.googleapis.com/css?family=Roboto:400,500,300' rel='stylesheet' type='text/css'>
+
+    <!-- Tab icon -->
+    <link rel="shortcut icon" type="image/x-icon" href="img/orbit.png">
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Know Your Area</title>
+
+</head>
+
+
+<body>
+    <!--Navagation bar starts -->
+    <nav class="nav">
+        <div class="content">
+            <ul class="links">
+                <li><a href="#">Map</a></li>
+                <li><a href="#">Infomation</a></li>
+                <li><a href="#">Video</a></li>
+                <li><a href="#">About</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!--Navagation bar ends -->
+
+    <!--Container for all page content -->
+    <a name="intro">
+        <section class="intro">
+            <!--Background image and intro text start -->
+            <div class="content">
+                <h1>Know Your Area</h1>
+                <h3>Find out more about your area</h3>
+
+                <!--Background image and intro text end -->
+
+
+                <!--Containers for search, button and explication/intro text -->
+                <section class="container input-form">
+                    <input id="pac-input" class="searchTerm" type="text" name="search" placeholder="Search your area..">
+                    <button id='search' type="button" class="btn btn-primary">Submit</button>
+                    <p> Simply submit the name of the place you want to know more about for everythng you need to know </p>
+                </section>
+
+                <!--Containers for Wiki, Google Maps and YouTube-->
+                <section class="container output">
+
+                    <!--Wiki-->
+                    <div id="output1" class="column">Swat up on an area and know where your citys name comes from.</div>
+
+                    <!--Google Maps -->
+                    <div id="output2" class="column">
+                        <div id="map"></div>
+                    </div>
+
+                    <!--YouTube-->
+                    <div id="output3" class="column">
+                        <ul class="js-search-results">
+                            <li>Interesting videos be here - well after you hit submit!</li>
+                        </ul>
+                    </div>
+
+                </section>
+            </div>
+        </section>
+    </a>
+
+    <!--Footer and socil media -->
+    <footer>
+        <p> Find Out More </p>
+        <i class="fa fa-git-square"></i>
+        <i class="fa fa-linkedin-square" aria-hidden="true"></i>
+        <i class="fa fa-twitter-square" aria-hidden="true"></i>
+    </footer>
+
+
+    <!--Google maps JS-->
+    <script>
+        // This example adds a search box to a map, using the Google Place Autocomplete
+        // feature. People can enter geographical searches. The search box will return a
+        // pick list containing a mix of places and predicted search terms.
+
+        // This example requires the Places library. Include the libraries=places
+        // parameter when you first load the API. For example:
+        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+        function initAutocomplete() {
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {
+                    lat: 51.502966,
+                    lng: -0.152723
+                },
+                zoom: 14,
+                mapTypeId: 'roadmap'
+            });
+
+            // Create the search box and link it to the UI element.
+            var input = document.getElementById('pac-input');
+            var searchBox = new google.maps.places.SearchBox(input);
+            // map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+            // Bias the SearchBox results towards current map's viewport.
+            map.addListener('bounds_changed', function() {
+                searchBox.setBounds(map.getBounds());
+            });
+
+            var markers = [];
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            searchBox.addListener('places_changed', function() {
+                var places = searchBox.getPlaces();
+
+                if (places.length == 0) {
+                    return;
+                }
+
+                // Clear out the old markers.
+                markers.forEach(function(marker) {
+                    marker.setMap(null);
+                });
+                markers = [];
+
+                // For each place, get the icon, name and location.
+                var bounds = new google.maps.LatLngBounds();
+                places.forEach(function(place) {
+                    if (!place.geometry) {
+                        console.log("Returned place contains no geometry");
+                        return;
+                    }
+                    var icon = {
+                        url: place.icon,
+                        size: new google.maps.Size(71, 71),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(17, 34),
+                        scaledSize: new google.maps.Size(25, 25)
+                    };
+
+                    // Create a marker for each place.
+                    markers.push(new google.maps.Marker({
+                        map: map,
+                        icon: icon,
+                        title: place.name,
+                        position: place.geometry.location
+                    }));
+
+                    if (place.geometry.viewport) {
+                        // Only geocodes have viewport.
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+                map.fitBounds(bounds);
+            });
+        }
+
+    </script>
+
+    <!--Scripts-->
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD7buZcMEjcjwpMa8qztndpYmCxxP-Te2A&libraries=places&callback=initAutocomplete" async defer></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
