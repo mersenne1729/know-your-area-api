@@ -1,12 +1,8 @@
 # Your Local App
 
-## Synopsis
-
-A JavaScript and jQuery app with integrating Open Platform APIs *YouTube*, *Wikipedia* and *Google Maps*, which allows users to quickly research different places and pull up the basic details.  
-
 ## Motivation
 
-This app is made to enable users to quickly and dynamically draw the relevant information of a location on one platform. 
+I've made this to understand programing a litte more!
 
 ## Initial UX
 
@@ -33,11 +29,4 @@ The app's functionality includes:
 ## Technical
 
 The app is built with HTML, CSS, JavaScript and jQuery, and makes use of three JSON calls to the *YouTube*, *Wikipedia* and *Google Maps* Open Platform APIs to return the data. All data is held in memory during the user's session. It has been built to be fully responsive across mobile, tablet and desktop screen resolutions.
-
-## Development Roadmap
-
-This is v1.0 of the app, future enhancements are expected to include:
-* Extending the app functionality to return other relevant information such as social media feeds, local news and restaurants regarding an area. 
-* A higher degree of data sanitisation so that the searches return more accurate information. 
-* Redesigning the user interface to improve user experience. 
 
